@@ -114,3 +114,12 @@ Then("I press {int}{int}{int}{int}") do |pad1,pad2,pad3,pad4|
 
   end
 
+  Then ("I enter text {string} into field with id {string}") do |text,id|
+  	steps %{
+
+
+		Then I press "#{id}"
+		Then I enter text "#{text}"
+  	}
+  end
+
