@@ -18,3 +18,4 @@ Feature: Login behavior
 	Then I login as a cashier "Merci Watson" with 1234
 	Then I wait upto 180 seconds for the "ProductsActivity" screen to appear
 	Then I wait for 2 seconds
+  Then I logout
