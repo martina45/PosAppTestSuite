@@ -8,7 +8,7 @@ Feature: Custom product sale
 
          Then I press "CartAddNewItem"
          Then I press 2000
-         Then I enter text "Hose" into field with id "CustomProductDialogProductNameEditText"
+         Then I select field-id "CustomProductDialogProductNameEditText" and enter text "Hose" 
          Then I press "19%"
          Then I press "dialogBaseSaveButton"
          Then I press "CartGoToPayment"

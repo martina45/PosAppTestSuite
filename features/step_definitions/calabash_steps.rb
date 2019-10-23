@@ -16,6 +16,7 @@ When("I login to tenant {string} as user {string} with password {string}") do |t
 	}
 end
 
+
 Then /^I scroll "([^\"]*)" to text "([^\"]*)" and touch it$/ do |listId,name|
     element="* text:'#{name}'"      
     if !element_exists(element)
@@ -32,13 +33,16 @@ Then /^I scroll "([^\"]*)" to text "([^\"]*)" and touch it$/ do |listId,name|
         end
 end
 
+
 Then("I choose the {string} store") do |store| 
 	select_item_from_spinner("* text:'#{store}'")
 
 	steps %{ 
 		Then I press "SetupNextButton"
 	}
+
 end
+
 
 Then("I login as a cashier {string} with {int}{int}{int}{int}") do |cashier,pin1,pin2,pin3,pin4| 
 	steps %{
@@ -54,26 +58,6 @@ Then("I login as a cashier {string} with {int}{int}{int}{int}") do |cashier,pin1
 end
 
 
-Then("I press {string} and I add {string} to my basket {int} times and I press {string}") do |name1,name2,count,name3|
-  steps %{
-      Then I press "#{name1}"
-    }        	
-       count.to_i.times do 
-           touch("* text:'#{name2}'")    
-       end   
-       
-  steps %{
-      Then I press "#{name3}"
-      Then I wait for 2 seconds
-    }
-end
-
-Then("I logout") do
-  steps %{
-  Then I press "LocafoxToolbarCashier"
-}
-end
-
 When("I'm logged in with {int}{int}{int}{int}") do |pin1,pin2,pin3,pin4| 
   steps %{
 		Then I press "LoginButton#{pin1}"
@@ -83,11 +67,32 @@ When("I'm logged in with {int}{int}{int}{int}") do |pin1,pin2,pin3,pin4|
 	}
 end
 
-Then /^I (?:press|touch)"([^\"]*)"$/ do |name|
-        touch("button marked:'#{name}'")
-                sleep(STEP_PAUSE)
-                
+Then("I press {string} and I add {string} to my basket {int} times and I press {string}") do |name1,name2,count,name3|
+  steps %{
+  Then I press "#{name1}"
+  }
+        	
+       count.to_i.times do 
+           touch("* text:'#{name2}'")    
+       end   
+       
+  steps %{
+  Then I press "#{name3}"
+  Then I wait for 2 seconds
+}
 end
+
+Then("I logout") do
+  steps %{
+  Then I press "LocafoxToolbarCashier"
+}
+end
+
+Then /^I (?:press|touch)"([^\"]*)"$/ do |name|
+touch("button marked:'#{name}'")
+sleep(STEP_PAUSE)
+end
+
 
 Then("I add {string} to my basket {int} times") do |name,count| 
 	
@@ -95,31 +100,31 @@ Then("I add {string} to my basket {int} times") do |name,count|
 		touch("* text:'#{name}'")
 
     end
+
 end
 
 Then("I press {int}{int}{int}{int}") do |pad1,pad2,pad3,pad4|
   steps %{
     
-
         Then I press "btnCashNumpad#{pad1}"
 		Then I press "btnCashNumpad#{pad2}"
 		Then I press "btnCashNumpad#{pad3}"
 		Then I press "btnCashNumpad#{pad4}"
-    }
-  end
+  }
+end
 
-  Then ("I press id {string} with text {string}") do |id,text|
+Then ("I press id {string} with text {string}") do |id,text|
+  tap_when_element_exists("* id:'#{id}' text:'#{text}'")
+end  
 
-    tap_when_element_exists("* id:'#{id}' text:'#{text}'")
+Then /^I select field-id "([^\"]*)" and enter text "([^\"]*)"$/ do |id,text|
+  enter_text("android.widget.EditText id:'#{id}'", text)
+end
 
-  end
+Then /^I enter "([^\"]*)"$/ do |text_to_type|
+  wait_for_keyboard()
+  keyboard_enter_text text_to_type
+  sleep(STEP_PAUSE)
+end
 
-  Then ("I enter text {string} into field with id {string}") do |text,id|
-  	steps %{
-
-
-		Then I press "#{id}"
-		Then I enter text "#{text}"
-  	}
-  end
 
