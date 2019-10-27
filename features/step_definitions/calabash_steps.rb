@@ -127,4 +127,8 @@ Then /^I enter "([^\"]*)"$/ do |text_to_type|
   sleep(STEP_PAUSE)
 end
 
+Then /^I press enter button$/ do
+  press_enter_button
+end
+
 
