@@ -1,1 +1,8 @@
 exit
+start_test_server_in_background
+adb shell dumpsys activity|grep "mFocusedActivity"
+adb shell dumpsys activity top
+query('*')
+query ('*')
+query ('*')
+exit
