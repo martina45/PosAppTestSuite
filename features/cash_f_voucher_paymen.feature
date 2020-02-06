@@ -28,7 +28,7 @@ Feature: Split payment behavior cash + foreign voucher and reverse order
          Then I wait for 2 seconds
          Then I logout
 
-  Scenario: As a valid user I use the cash + foreign voucher split payment  
+  Scenario: As a valid user I use the foreign voucher + cash split payment  
 
          Then I press "Zahlung splitten"
          Then I wait for 2 seconds
