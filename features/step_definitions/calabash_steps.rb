@@ -131,6 +131,9 @@ Then /^I press enter button$/ do
   press_enter_button
 end
 
+Then /^the "([^\"]*)" field should contain "([^\"]*)"$/ do |id, text|
+      wait_for_element_exists("* id:'#{id}' text:'#{text}'")
+end
 
 
 
