@@ -9,7 +9,7 @@ Scenario: As a valid user I add 1 item to the basket and clear it afterwards
          Then I press "Spielzeug"     
          Then I press "Fischertechnik 533872 - Dynamic M"
          Then I press "cartEntryMinus"
-		 Then the "CartPayAmount" field should contain "$0.00"
+         Then the "CartPayAmount" field should contain "$0.00"
          Then I logout
 
 

@@ -135,5 +135,13 @@ Then /^the "([^\"]*)" field should contain "([^\"]*)"$/ do |id, text|
       wait_for_element_exists("* id:'#{id}' text:'#{text}'")
 end
 
+Then("I press {string} for {int} times") do |name,count| 
+	
+	count.to_i.times do 
+		touch("* id:'#{name}'")
+
+    end
+end
+
 
 
