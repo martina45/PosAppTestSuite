@@ -2,7 +2,7 @@ Feature: Split payment behavior credit card + foreign voucher and reverse order
 
   Background:
          When I'm logged in with 1234
-         Then I press "Hosen" and I add "Hose für Jungen blau" to my basket 1 times and I press "CartGoToPayment"
+         Then I press "Hosen" and I add "Hose für Jungen blau" to my basket 1 time and I press "CartGoToPayment"
 
   Scenario: As a valid user I use the credit card + foreign voucher split payment       
 
