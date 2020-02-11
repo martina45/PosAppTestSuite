@@ -67,7 +67,7 @@ When("I'm logged in with {int}{int}{int}{int}") do |pin1,pin2,pin3,pin4|
 	}
 end
 
-Then("I press {string} and I add {string} to my basket {int} times and I press {string}") do |name1,name2,count,name3|
+Then("I press {string} and I add {string} to my basket {int} time(s) and I press {string}") do |name1,name2,count,name3|
   steps %{
   Then I press "#{name1}"
   }
@@ -94,7 +94,7 @@ sleep(STEP_PAUSE)
 end
 
 
-Then("I add {string} to my basket {int} times") do |name,count| 
+Then("I add {string} to my basket {int} time(s)") do |name,count| 
 	
 	count.to_i.times do 
 		touch("* text:'#{name}'")
@@ -135,7 +135,7 @@ Then /^the "([^\"]*)" field should contain "([^\"]*)"$/ do |id, text|
       wait_for_element_exists("* id:'#{id}' text:'#{text}'")
 end
 
-Then("I press {string} for {int} times") do |name,count| 
+Then("I press {string} for {int} time(s)") do |name,count| 
 	
 	count.to_i.times do 
 		touch("* id:'#{name}'")

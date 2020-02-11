@@ -2,7 +2,7 @@ Feature: Split payment behavior ec-/credit card and reverse payment credit-/ec c
 
   Background:
          When I'm logged in with 1234
-         Then I press "Hosen" and I add "Hose für Jungen blau" to my basket 1 times and I press "CartGoToPayment"
+         Then I press "Hosen" and I add "Hose für Jungen blau" to my basket 1 time and I press "CartGoToPayment"
 
   Scenario: As a valid user I use the ec-/credit card split payment       
 
