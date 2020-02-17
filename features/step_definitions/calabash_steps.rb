@@ -140,9 +140,6 @@ Then("I press {string} for {int} time(s)") do |name,count|
     end
 end
 
-Then /^I (?:press|touch) on screen (\d+) from the left and (\d+) from the top$/ do |x,y|
-  touch(nil, { offset: { x: x.to_i, y: y.to_i } })
-end
 
 
 

@@ -22,6 +22,6 @@ Feature: Add basket note to basket behavior
          Then I wait upto 40 seconds for the "ProductsActivity" screen to appear
          Then I press "LocafoxMenuBtn"
          Then I press "Bonjournal/Retouren"
-         Then I press on screen 48 from the left and 460 from the top
+         Then I long press "Verkauf"
          Then the "TransactionDetailBasketNoteText" field should contain "Warenkorbnotiz"
          Then I logout
