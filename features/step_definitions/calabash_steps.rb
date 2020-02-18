@@ -16,7 +16,6 @@ When("I login to tenant {string} as user {string} with password {string}") do |t
 	}
 end
 
-
 Then /^I scroll "([^\"]*)" to text "([^\"]*)" and touch it$/ do |listId,name|
     element="* text:'#{name}'"      
     if !element_exists(element)
@@ -32,7 +31,6 @@ Then /^I scroll "([^\"]*)" to text "([^\"]*)" and touch it$/ do |listId,name|
             touch(element)
         end
 end
-
 
 Then("I choose the {string} store") do |store| 
 	select_item_from_spinner("* text:'#{store}'")
@@ -100,7 +98,6 @@ Then("I add {string} to my basket {int} time(s)") do |name,count|
 		touch("* text:'#{name}'")
 
     end
-
 end
 
 Then("I press {int}{int}{int}{int}") do |pad1,pad2,pad3,pad4|
@@ -142,6 +139,8 @@ Then("I press {string} for {int} time(s)") do |name,count|
 
     end
 end
+
+
 
 
 
