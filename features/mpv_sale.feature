@@ -21,6 +21,6 @@ Feature: Multi-purpose voucher sale
          Then I wait upto 40 seconds for the "ProductsActivity" screen to appear
          Then I press "LocafoxMenuBtn"
          Then I press "Bonjournal/Retouren"
-         Then I long press "Verkauf"
+         Then I press "Verkauf"
          Then the "TransactionDetailItemNote" field should contain "Geburtstag"
          Then I logout
