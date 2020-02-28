@@ -140,6 +140,14 @@ Then("I press {string} for {int} time(s)") do |name,count|
     end
 end
 
+Then("I run a search for {string}") do |searchTerm| 
+	steps %{
+		Then I press "searchProductsImageView"
+		Then I enter text "#{searchTerm}" into field with id "searchProductsEditText"
+		Then I press the enter button
+	}
+end
+
 
 
 
