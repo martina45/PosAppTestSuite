@@ -1,5 +1,5 @@
 Feature: Remove a product from favorites behavior
-
+# The add_favorite feature needs to run before this one
   Background:
 
          When I'm logged in with 1234

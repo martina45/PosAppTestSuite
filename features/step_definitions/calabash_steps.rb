@@ -148,6 +148,8 @@ Then("I run a search for {string}") do |searchTerm|
 	}
 end
 
-
+Then /^I hide keyboard$/ do
+    hide_soft_keyboard()
+end
 
 
