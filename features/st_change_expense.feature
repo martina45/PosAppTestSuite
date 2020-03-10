@@ -17,4 +17,5 @@ Feature: Conduct a special transaction - change expense behavior
          Then I press "Bonjournal/Retouren"
          Then I press "Wechselgeldentnahme"
          Then the "TransactionDetailBasketNoteText" field should contain "WgEntnahme"
+         Then the "TransactionDetailPrice" field should contain "-$20.00"
          Then I logout
