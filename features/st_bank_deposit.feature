@@ -4,7 +4,7 @@ Feature: Conduct a special transaction - bank deposit behavior
 
          When I'm logged in with 1234
 
-  Scenario: As a valid user I conduct a private expense and I validate the transaction in the Bonjournals transaction details
+  Scenario: As a valid user I conduct a bank deposit and I validate the transaction in the Bonjournals transaction details
 
 
          Then I press "LocafoxMenuBtn"
