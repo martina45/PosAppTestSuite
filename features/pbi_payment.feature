@@ -12,6 +12,7 @@ Feature: Pay by invoice payment behavior
          Then I press id "ErrorDialogButtonOK" with text "OK"
          Then I wait upto 40 seconds for the "CustomerListActivity" screen to appear
          Then I wait for 2 seconds
+         Then I select field-id "customerSearchEditText" and enter text "Herbert Schmidt"  
          Then I press id "customerSearchNameTextVIew" with text "Herbert Schmidt"
          Then I press "customerDetailsAddToBasketButton"
          Then I wait upto 40 seconds for the "CheckoutInvoiceCustomerActivity" screen to appear
@@ -57,6 +58,7 @@ Feature: Pay by invoice payment behavior
          Then I press id "ErrorDialogButtonOK" with text "OK"
          Then I wait upto 40 seconds for the "CustomerListActivity" screen to appear
          Then I wait for 2 seconds
+         Then I select field-id "customerSearchEditText" and enter text "Herbert Schmidt"
          Then I press id "customerSearchNameTextVIew" with text "Herbert Schmidt"
          Then I press "customerDetailsAddToBasketButton"
          Then I wait upto 40 seconds for the "CheckoutInvoiceCustomerActivity" screen to appear
