@@ -148,8 +148,56 @@ Then("I run a search for {string}") do |searchTerm|
 	}
 end
 
+Then("I conduct a cash transaction for {string}") do |amount|
+  steps %{
+    Then I press "#{amount}"
+    Then I press "checkoutCloseButton"
+    Then I wait upto 40 seconds for the "ActivityConfirmation" screen to appear
+    Then I wait for 2 seconds
+    Then I press "SuccessNewTransaction"
+    Then I wait upto 40 seconds for the "ProductsActivity" screen to appear
+    Then I wait for 2 seconds
+  }
+end
+
 Then /^I hide keyboard$/ do
     hide_soft_keyboard()
+end
+
+Then ("I conduct a {string} invoice payment") do |name|
+  steps %{
+         Then I press "DownPaymentSearch"
+         Then I enter text "864" into field with id "DownPaymentSearch"
+         Then I press "DownPaymentSearchResults"
+         Then I hide keyboard
+         Then I press 2000
+         Then I press "SpecialTransactionsAccept"
+         Then I scroll "DownPaymentCheckoutPaymentTabLayout" to text "#{name}" and touch it
+         Then I press "DownPaymentCheckoutCloseButton"
+         Then I wait upto 40 seconds for the "ActivityConfirmation" screen to appear
+         Then I wait for 2 seconds
+         Then I press "SuccessNewTransaction"
+         Then I wait upto 40 seconds for the "ProductsActivity" screen to appear
+         Then I wait for 2 seconds      
+      }
+end
+
+Then ("I conduct an invoice payment in cash") do
+  steps %{
+         Then I press "DownPaymentSearch"
+         Then I enter text "864" into field with id "DownPaymentSearch"
+         Then I press "DownPaymentSearchResults"
+         Then I hide keyboard
+         Then I press 2000
+         Then I press "SpecialTransactionsAccept"
+         Then I press "$20.00"
+         Then I press "DownPaymentCheckoutCloseButton"
+         Then I wait upto 40 seconds for the "ActivityConfirmation" screen to appear
+         Then I wait for 2 seconds
+         Then I press "SuccessNewTransaction"
+         Then I wait upto 40 seconds for the "ProductsActivity" screen to appear
+         Then I wait for 2 seconds      
+      }
 end
 
 
