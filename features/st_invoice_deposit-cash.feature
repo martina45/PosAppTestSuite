@@ -10,7 +10,7 @@ Feature: Conduct a special transaction - invoice deposit cash behavior
          Then I press "LocafoxMenuBtn"
          Then I press "Einlage/Ausgabe"
          Then I scroll "SpecialTransactionsTypeSpinner" to text "Rechnungsanzahlung" and touch it
-         Then I conduct an invoice payment in "Bar"
+         Then I conduct an invoice payment in cash
          Then I press "LocafoxMenuBtn"
          Then I press "Bonjournal/Retouren"
          Then I press "Rechnungsanzahlung"

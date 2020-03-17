@@ -182,7 +182,7 @@ Then ("I conduct a {string} invoice payment") do |name|
       }
 end
 
-Then ("I conduct an invoice payment in {string}") do |name|
+Then ("I conduct an invoice payment in cash") do
   steps %{
          Then I press "DownPaymentSearch"
          Then I enter text "864" into field with id "DownPaymentSearch"
