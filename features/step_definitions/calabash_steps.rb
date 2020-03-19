@@ -200,4 +200,48 @@ Then ("I conduct an invoice payment in cash") do
       }
 end
 
+Then ("I change the first name of the selected customer to {string} in the CRM") do |name|
+  steps %{
+         Then I select field-id "customerSearchEditText" and enter text "Schmidt"
+         Then I press "customerSearchItemClick"
+         Then I press "customerDetailsEditImageView"
+         Then I clear input field with id "customerNameEditText"
+         Then I enter text "#{name}" into field with id "customerNameEditText"
+         Then I hide keyboard
+         Then I press "customerDetailsSaveButton"   
+      }
+end
+
+Then ("I validate the new name of the customer {string} in the basket") do |name|
+    steps %{
+         Then the "CartCustomerName" field should contain "#{name}"
+         Then I press "CartCustomerLayout"
+         Then I press "CartCustomerDelete"   
+       }
+end
+
+Then /^I enter random email address$/ do
+      random_string = random_string()
+      random_email = "auto#{random_string}@qa.test"
+      steps %{
+      Then I enter text "#{random_email}" into field with id "customerCreateEmailEditText"
+      }
+end
+
+Then /^I enter random first name$/ do
+      random_string = random_string()
+      random_firstname = "auto#{random_string}"
+      steps %{
+      Then I enter text "#{random_firstname}" into field with id "customerCreateNameEditText"
+      }
+end
+
+Then /^I enter random surname$/ do
+      random_string = random_string()
+      random_surname = "auto#{random_string}"
+      steps %{
+      Then I enter text "#{random_surname}" into field with id "customerCreateLastNameEditText"
+      }
+end
+
 
