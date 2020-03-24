@@ -244,4 +244,61 @@ Then /^I enter random surname$/ do
       }
 end
 
+Then ("I add the voucher code and press {int}{int}{int}{int}{int}{int}{int}{int}{int}{int}") do |pad1,pad2,pad3,pad4,pad5,pad6,pad7,pad8,pad9,pad10|
+  steps %{   
+    Then I press "btnCashNumpad#{pad1}"
+    Then I press "btnCashNumpad#{pad2}"
+    Then I press "btnCashNumpad#{pad3}"
+    Then I press "btnCashNumpad#{pad4}"
+    Then I press "btnCashNumpad#{pad5}"
+    Then I press "btnCashNumpad#{pad6}"
+    Then I press "btnCashNumpad#{pad7}"
+    Then I press "btnCashNumpad#{pad8}"
+    Then I press "btnCashNumpad#{pad9}"
+    Then I press "btnCashNumpad#{pad10}"
+  }
+end
+
+Then ("I conduct a card payment with {string}") do |name|
+    steps %{
+         Then I press "#{name}"
+         Then I press "checkoutCloseButton"
+         Then I wait upto 40 seconds for the "ActivityConfirmation" screen to appear
+         Then I wait for 2 seconds
+         Then I press "SuccessNewTransaction"
+         Then I wait upto 40 seconds for the "ProductsActivity" screen to appear
+         Then I wait for 2 seconds
+       }
+end 
+
+Then ("I conduct a payment with foreign voucher") do
+  steps %{   
+         Then I press "Gutschein"
+         Then I press "Fremder Gutschein"
+         Then I press 3000
+         Then I press "checkoutCloseButton"
+         Then I wait upto 40 seconds for the "ActivityConfirmation" screen to appear
+         Then I wait for 2 seconds
+         Then I press "SuccessNewTransaction"
+         Then I wait upto 40 seconds for the "ProductsActivity" screen to appear
+         Then I wait for 2 seconds
+  }
+end 
+
+Then ("I conduct a payment with Locafox voucher") do
+  steps %{   
+         Then I press "Gutschein"
+         Then I add the voucher code and press 2062666789
+         Then I press "checkoutCloseButton"
+         Then I wait upto 40 seconds for the "ActivityConfirmation" screen to appear
+         Then I wait for 2 seconds
+         Then I press "SuccessNewTransaction"
+         Then I wait upto 40 seconds for the "ProductsActivity" screen to appear
+         Then I wait for 2 seconds
+  }
+end 
+
+
+
+
 
