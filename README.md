@@ -1,4 +1,4 @@
-# PosAppATestSuite
+# PosAppTestSuite
 
 Automated Tests for POS Automated UI level tests
 ```
